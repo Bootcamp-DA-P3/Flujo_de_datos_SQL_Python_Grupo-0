@@ -94,14 +94,29 @@ pip install -r requirements.txt
 
 ### 6 · El código — **en VS Code**
 
-- **`src/config.py`** — lee las variables del `.env`. Ningún dato sensible escrito a mano aquí.
-- **`src/main.py`** — se conecta a MySQL, ejecuta la consulta elegida y exporta el resultado a `data/`.
+Los dos ficheros vienen con el esqueleto hecho y las funciones vacías.
+
+- **`src/config.py`** — ya está terminado. Lee las credenciales del `.env`. No hay que tocarlo.
+- **`src/main.py`** — tiene la estructura y cuatro funciones por implementar, cada una con su `TODO`.
+
+Lo primero es rellenar las tres líneas de arriba del fichero:
+
+```python
+CONSULTA = "df1_actividad_clientes.sql"   # cuál de las tres lleváis al CSV
+GRANO = ""                                # una fila = ...
+CLAVE_DE_GRANO = ""                       # la columna que lo identifica
+```
+
+> [!NOTE]
+> El script **no arranca** hasta que `GRANO` y `CLAVE_DE_GRANO` estén rellenos. Es a propósito.
 
 Ejecutadlo desde la **raíz del proyecto**, no desde dentro de `src/`:
 
 ```bash
 python src/main.py
 ```
+
+Una de las funciones es `comprobar_grano()`: compara el número de filas con el de claves distintas y avisa si el `JOIN` está multiplicando. Implementadla antes que `exportar()`.
 
 ### 7 · La limpieza final — **en el notebook**
 
