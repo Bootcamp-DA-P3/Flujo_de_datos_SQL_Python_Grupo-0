@@ -141,10 +141,10 @@ celerybeat.pid
 # RabbitMQ
 mnesia/
 rabbitmq/
-rabbitmq-data/
+rabbitmq-data/*
 
 # ActiveMQ
-activemq-data/
+activemq-data/*
 
 # SageMath parsed files
 *.sage.py
@@ -220,4 +220,6 @@ __marimo__/
 .streamlit/secrets.toml
 
 # data files
-data/   
+data/*
+# la carpeta data/ se ignora, pero el .gitkeep viaja para que exista al clonar
+!data/.gitkeep
